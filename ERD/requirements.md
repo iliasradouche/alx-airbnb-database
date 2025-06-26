@@ -1,4 +1,4 @@
-# AirBnB Database Specification - Requirements
+# Entity-Relationship Diagram Requirements for Airbnb Database
 
 ## Entities and Attributes
 
@@ -67,3 +67,11 @@
 - User Table: Unique constraint on email
 - Review Table: Rating must be between 1 and 5
 - All required fields have NOT NULL constraints
+
+## Design Requirements
+
+1. Each entity must have appropriate attributes including primary keys
+2. Foreign keys must be used to establish relationships between entities
+3. Many-to-many relationships should use junction tables
+4. The database design should be normalized to at least 3NF (Third Normal Form)
+5. Entity and referential integrity must be maintained
