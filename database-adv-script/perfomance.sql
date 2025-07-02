@@ -21,7 +21,9 @@ FROM
     booking
 JOIN user ON booking.user_id = user.user_id
 JOIN property ON booking.property_id = property.property_id
-LEFT JOIN payment ON booking.booking_id = payment.booking_id;
+LEFT JOIN payment ON booking.booking_id = payment.booking_id
+WHERE booking.status = 'confirmed'
+  AND booking.total_price > 0;
 
 -- Analyze performance of the initial query
 EXPLAIN SELECT
