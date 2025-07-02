@@ -32,3 +32,20 @@ Retrieves all properties whose average review rating is greater than 4.0.
 
 Finds all users who have made more than 3 bookings.
 - Uses a correlated subquery in the `WHERE` clause, where for each user, it counts the number of bookings associated with that user and selects those with more than 3.
+
+# Aggregations and Window Functions
+
+This file contains SQL queries demonstrating the use of aggregation and window functions on the ALX AirBnB database schema.
+
+## 1. Total Bookings by Each User
+
+Calculates the total number of bookings made by each user.
+- Uses the `COUNT()` aggregation function and `GROUP BY` clause.
+- Includes users with zero bookings (via `LEFT JOIN`).
+
+## 2. Ranking Properties by Number of Bookings
+
+Ranks properties based on the total number of bookings they have received.
+- Uses `COUNT()` to aggregate bookings for each property.
+- Applies the `RANK()` window function to assign a rank to each property based on booking counts.
+- Properties with no bookings are included and ranked accordingly.
