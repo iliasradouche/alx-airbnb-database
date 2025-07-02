@@ -22,7 +22,8 @@ SELECT
     property.name,
     property.location,
     COUNT(booking.booking_id) AS total_bookings,
-    RANK() OVER (ORDER BY COUNT(booking.booking_id) DESC) AS booking_rank
+    ROW_NUMBER() OVER (ORDER BY COUNT(booking.booking_id) DESC) AS row_number_rank,
+    RANK() OVER (ORDER BY COUNT(booking.booking_id) DESC) AS dense_rank
 FROM
     property
 LEFT JOIN booking ON property.property_id = booking.property_id
@@ -31,4 +32,4 @@ GROUP BY
     property.name,
     property.location
 ORDER BY
-    booking_rank ASC;
+    row_number_rank ASC;
