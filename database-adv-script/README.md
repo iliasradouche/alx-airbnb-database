@@ -17,3 +17,18 @@ Retrieves all properties and any reviews they have received.
 Retrieves all users and all bookings, even if a user has no bookings or a booking is not linked to a user.
 - MySQL does not support FULL OUTER JOIN directly. This is achieved by combining the results of a `LEFT JOIN` and a `RIGHT JOIN` using `UNION`.
 - Ensures every user and every booking is represented.
+
+
+# Subqueries Practice
+
+This file demonstrates the use of both correlated and non-correlated subqueries on the ALX AirBnB database schema.
+
+## 1. Properties with Average Rating > 4.0 (Non-correlated Subquery)
+
+Retrieves all properties whose average review rating is greater than 4.0.
+- Uses a subquery in the `WHERE` clause to filter properties based on aggregated ratings from the `review` table.
+
+## 2. Users with More Than 3 Bookings (Correlated Subquery)
+
+Finds all users who have made more than 3 bookings.
+- Uses a correlated subquery in the `WHERE` clause, where for each user, it counts the number of bookings associated with that user and selects those with more than 3.
